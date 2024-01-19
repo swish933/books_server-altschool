@@ -77,6 +77,11 @@ const booksControllers = {
 					return item.id === updateContent.id;
 				});
 
+				if (!existingBooks[bookIndex]) {
+					res.writeHead(400);
+					res.end("Wrong ID");
+				}
+
 				existingBooks[bookIndex] = {
 					...existingBooks[bookIndex],
 					...updateContent,
