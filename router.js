@@ -6,9 +6,9 @@ const booksRouter = (req, res, method) => {
 			booksControllers.getAllBooks(req, res);
 			break;
 
-		case "POST":
-			booksControllers.addBook(req, res);
-			break;
+		// case "POST":
+		// 	booksControllers.addBook(req, res);
+		// 	break;
 
 		case "PUT":
 			booksControllers.updateBook(req, res);
@@ -40,8 +40,8 @@ const authorsRouter = (req, res, method) => {
 		case "PUT":
 			return authorsControllers.updateAuthor(req, res);
 
-		case "DELETE":
-			return authorsControllers.deleteAuthor(req, res);
+		// case "DELETE":
+		// 	return authorsControllers.deleteAuthor(req, res);
 
 		default:
 			res.writeHead(404);
