@@ -1,7 +1,7 @@
 const http = require("http");
 const path = require("path");
 const { readFileSync } = require("fs");
-const { booksRouter } = require("./router");
+const { booksRouter, authorsRouter } = require("./router");
 
 const PORT = 8000;
 const HOST = "";
@@ -13,12 +13,12 @@ function requestHandler(req, res) {
 	res.setHeader("Content-Type", "application/json");
 
 	if (req.url === "/books") {
-		return booksRouter(req, res, req.method, booksDB);
+		return booksRouter(req, res, req.method);
 	}
 
-	// if (req.url == "/books/author") {
-	// 	authorsRouter(req.method);
-	// }
+	if (req.url == "/books/author") {
+		return authorsRouter(req, res, req.method);
+	}
 
 	res.writeHead(404);
 	res.write("Error. No such page.");

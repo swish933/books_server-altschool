@@ -1,4 +1,4 @@
-const { booksControllers } = require("./controllers");
+const { booksControllers, authorsControllers } = require("./controllers");
 
 const booksRouter = (req, res, method) => {
 	switch (method) {
@@ -32,16 +32,16 @@ const booksRouter = (req, res, method) => {
 const authorsRouter = (req, res, method) => {
 	switch (method) {
 		case "GET":
-			return getAllAuthors(req, res);
+			return authorsControllers.getAllAuthors(req, res);
 
 		case "POST":
-			return addAuthor(req, res);
+			return authorsControllers.addAuthor(req, res);
 
 		case "PUT":
-			return updateAuthor(req, res);
+			return authorsControllers.updateAuthor(req, res);
 
 		case "DELETE":
-			return deleteAuthor(req, res);
+			return authorsControllers.deleteAuthor(req, res);
 
 		default:
 			res.writeHead(404);
