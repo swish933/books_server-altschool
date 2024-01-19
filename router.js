@@ -1,13 +1,13 @@
 const { booksControllers } = require("./controllers");
 
-const booksRouter = (req, res, method, books) => {
+const booksRouter = (req, res, method) => {
 	switch (method) {
 		case "GET":
 			booksControllers.getAllBooks(req, res);
 			break;
 
 		case "POST":
-			booksControllers.addBook(req, res, books);
+			booksControllers.addBook(req, res);
 			break;
 
 		case "PUT":
@@ -29,7 +29,7 @@ const booksRouter = (req, res, method, books) => {
 	}
 };
 
-const authorsRouter = (req, res, method, db) => {
+const authorsRouter = (req, res, method) => {
 	switch (method) {
 		case "GET":
 			return getAllAuthors(req, res);
