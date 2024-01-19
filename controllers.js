@@ -34,6 +34,7 @@ const booksControllers = {
 				}
 
 				const existingBooks = JSON.parse(books);
+				newBook.id = existingBooks.length + 1;
 				const allBooks = [...existingBooks, newBook];
 
 				writeFile(booksDBPath, JSON.stringify(allBooks), (err) => {
@@ -152,5 +153,8 @@ const booksControllers = {
 		});
 	},
 };
+
+// const authorsControllers = {
+// }
 
 module.exports = { booksControllers };
